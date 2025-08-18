@@ -1,0 +1,68 @@
+additional_feature_files: None
+batch_size: 256
+cache_validation_data: true
+checkpoint_path: None
+clip_gradient_norm: 1
+clip_targets_to_zero:
+- discharge
+data_dir: C:\Users\morit\Dropbox\Projekte\GenAI_para_for_HLSMs\data\09_lstm_data
+dataset: GenAI_para_ger
+device: cuda:0
+dynamic_inputs:
+- pet
+- pre
+- tavg
+epochs: 30
+evolving_attributes:
+experiment_name: run_3
+head: regression
+hidden_size: 256
+initial_forget_bias: 5
+learning_rate:
+  0: 0.001
+  10: 0.0005
+  20: 0.0001
+log_interval: 1
+log_n_figures: 0
+log_tensorboard: true
+loss: NSE
+metrics:
+- NSE
+- KGE
+model: cudalstm
+num_workers: 4
+optimizer: Adam
+output_activation: linear
+output_dropout: 0.4
+per_basin_test_periods_file: None
+per_basin_train_periods_file: None
+per_basin_validation_periods_file: None
+predict_last_n: 1
+run_dir: None
+save_train_data: false
+save_validation_results: true
+save_weights_every: 1
+seed: 114
+seq_length: 270
+static_attributes:
+- map
+- aridity
+- area
+- dem
+- high_prec_dur
+- frac_snow
+target_variables:
+- discharge
+test_basin_file: test_basins.txt
+test_end_date: 31/12/2012
+test_start_date: 01/01/2004
+train_basin_file: train_basins.txt
+train_data_file: None
+train_end_date: 31/12/2019
+train_start_date: 01/01/2013
+use_basin_id_encoding: false
+validate_every: 1
+validate_n_random_basins:
+validation_basin_file: val_basins.txt
+validation_end_date: 31/12/2019
+validation_start_date: 01/01/2013

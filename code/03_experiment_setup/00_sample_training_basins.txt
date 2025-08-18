@@ -1,0 +1,7 @@
+# Sampling training basins using QGIS:
+
+prj file (study_basins.qgz) and all shape files in GenAI_para_for_HLSMs/data/04_GIS
+
+1. Select only basins with area < 1000 km²
+2. Randomly sample 50 of these basins for training
+3. save random sample for training as training_basins.csv

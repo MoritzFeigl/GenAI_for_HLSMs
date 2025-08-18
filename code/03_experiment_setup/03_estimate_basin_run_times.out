@@ -1,0 +1,53 @@
+Error in data.frame(basin = basins, start = NA, end = NA, time = NA) : 
+  arguments imply differing number of rows: 0, 1
+Execution halted
+creating backup files at src/*.bak
+reading Fortran source file from src/mo_mpr_data_array.f90
+reading Fortran source file from src/mo_mpr_transfer_func.f90
+added 5 new transfer functions to code:
+-> "where (sand_till < vGenu_tresh )vGenu_N_c01 - vGenu_N_c02 * (sand_till ** (vGenu_N_c03)) + vGenu_N_c04 * (clay_till **(vGenu_N_c05))else where ( sand_till >= vGenu_tresh )vGenu_N_c10 + vGenu_N_c11 * (sand_till ** (vGenu_N_c12)) + vGenu_N_c13 * (clay_till **(vGenu_N_c14))"
+-> "where (sand_till < vGenu_tresh )exp(vGenu_N_c06 + vGenu_N_c07 * sand_till + vGenu_N_c08 * clay_till - vGenu_N_c09 * bd_eff_till)else where ( sand_till >= vGenu_tresh )exp(vGenu_N_c15 + vGenu_N_c16 * sand_till + vGenu_N_c17 * clay_till - vGenu_N_c18 * bd_eff_till)"
+-> "where (land_cover_horizon > 0.5 .and. land_cover_horizon < 1.5)(1.0 - rootFractionCoefficient_forest ** (z_upper_bound * 100.0)) - (1.0 - rootFractionCoefficient_forest ** (z_lower_bound * 100.0))else where (land_cover_horizon < 2.5)(1.0 - rootFractionCoefficient_impervious ** (z_upper_bound * 100.0)) - (1.0 - rootFractionCoefficient_impervious ** (z_lower_bound * 100.0))else where (land_cover_horizon < 3.5)(1.0 - (rootFractionCoefficient_forest - rootFractionCoefficient_pervious) ** (z_upper_bound * 100.0)) -(1.0 - (rootFractionCoefficient_forest - rootFractionCoefficient_pervious) ** (z_lower_bound * 100.0))"
+-> "where (classunit > -0.5 .and. classunit < 0.5) base_flow_geo_unit_01 else where (classunit > 1.5 .and. classunit < 2.5) base_flow_geo_unit_02 else where (classunit > 2.5 .and. classunit < 3.5) base_flow_geo_unit_03 else where (classunit > 3.5 .and. classunit < 4.5) base_flow_geo_unit_04 else where (classunit > 4.5 .and. classunit < 5.5) base_flow_geo_unit_05 else where (classunit > 5.5 .and. classunit < 6.5) base_flow_geo_unit_06 else where (classunit > 6.5 .and. classunit < 7.5) base_flow_geo_unit_07 else where (classunit > 7.5 .and. classunit < 8.5) base_flow_geo_unit_08 else where (classunit > 8.5 .and. classunit < 9.5) base_flow_geo_unit_09 else where (classunit > 9.5 .and. classunit < 10.5) base_flow_geo_unit_10 else where (classunit > 10.5 .and. classunit < 11.5) base_flow_geo_unit_11 else where (classunit > 11.5 .and. classunit < 12.5) base_flow_geo_unit_12 else where (classunit > 98.5 .and. classunit < 99.5) base_flow_geo_unit_13 else where (classunit > 101.5 .and. classunit < 102.5) base_flow_geo_unit_14 else where (classunit > 102.5 .and. classunit < 103.5) base_flow_geo_unit_15 else where (classunit > 103.5 .and. classunit < 104.5) base_flow_geo_unit_16 else where (classunit > 104.5 .and. classunit < 105.5) base_flow_geo_unit_17 else where (classunit > 105.5 .and. classunit < 106.5) base_flow_geo_unit_18 else where (classunit > 106.5 .and. classunit < 107.5) base_flow_geo_unit_19 else where (classunit > 108.5 .and. classunit < 109.5) base_flow_geo_unit_20 else where (classunit > 109.5 .and. classunit < 110.5) base_flow_geo_unit_21 else where (classunit > 110.5 .and. classunit < 111.5) base_flow_geo_unit_22 else where (classunit > 111.5 .and. classunit < 112.5) base_flow_geo_unit_23"
+-> "where (lat_l0 > 0.0 .and. aspect < aspectThresholdPET)minCorrectionFactorPET + maxCorrectionFactorPET / aspectThresholdPET * aspect else where (lat_l0 > 0.0)minCorrectionFactorPET + maxCorrectionFactorPET / (360.0 - aspectThresholdPET) * (360.0 - aspect)else where (aspect < aspectThresholdPET)minCorrectionFactorPET + maxCorrectionFactorPET / (360.0 - aspectThresholdPET) * (360.0 - aspect)else minCorrectionFactorPET + maxCorrectionFactorPET / aspectThresholdPET * aspect"
+writing Fortran source file to src/mo_mpr_data_array.f90
+writing Fortran source file to src/mo_mpr_transfer_func.f90
+Done!
+Compiling time start: 13:05:48
+rm: cannot remove 'build': No such file or directory
+-- The Fortran compiler identification is Intel 2021.5.0.20211109
+-- Detecting Fortran compiler ABI info
+-- Detecting Fortran compiler ABI info - done
+-- Check for working Fortran compiler: /gpfs/opt/sw/spack-0.17.1/opt/spack/linux-almalinux8-zen3/gcc-11.2.0/intel-oneapi-compilers-2022.0.2-yzi4tsud2tqh4s6ykg2ulr7pp7guyiej/compiler/2022.0.2/linux/bin/intel64/ifort - skipped
+-- Checking whether /gpfs/opt/sw/spack-0.17.1/opt/spack/linux-almalinux8-zen3/gcc-11.2.0/intel-oneapi-compilers-2022.0.2-yzi4tsud2tqh4s6ykg2ulr7pp7guyiej/compiler/2022.0.2/linux/bin/intel64/ifort supports Fortran 90
+-- Checking whether /gpfs/opt/sw/spack-0.17.1/opt/spack/linux-almalinux8-zen3/gcc-11.2.0/intel-oneapi-compilers-2022.0.2-yzi4tsud2tqh4s6ykg2ulr7pp7guyiej/compiler/2022.0.2/linux/bin/intel64/ifort supports Fortran 90 - yes
+-- build INDEPENDENT of module system OFF
+-- Found OpenMP_Fortran: -qopenmp (found version "5.0") 
+-- Found OpenMP: TRUE (found version "5.0")  
+CMake Warning at deps/mpr/deps/lightweight_fortran_lib/src/CMakeLists.txt:8 (message):
+  Preprocessor fypp not found!
+
+
+-- Found NetCDF: /gpfs/opt/sw/spack-0.17.1/opt/spack/linux-almalinux8-zen2/intel-2021.5.0/netcdf-fortran-4.4.5-um5yjit56ufokugazyhqgpcldrjfb2w4/lib/libnetcdff.so;/gpfs/opt/sw/spack-0.17.1/opt/spack/linux-almalinux8-zen2/intel-2021.5.0/netcdf-c-4.8.1-6xyj236xt7hmj4luxcrd7iylxmcw44e4/lib/libnetcdf.so  
+-- Performing Test CPP_FLAG
+-- Performing Test CPP_FLAG - Success
+-- Performing Test FLAG_FOUND
+-- Performing Test FLAG_FOUND - Success
+-- CMake build configuration for mhm 0.5.9
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/fs71468/mfeigl/GenAI_para_for_HLSMs/Runs/02_run_times/mhm/build
+Scanning dependencies of target flogging
+Scanning dependencies of target lightweight_fortran_lib
+[  1%] Building Fortran object src/mpr/flogging/CMakeFiles/flogging.dir/vt100.f90.o
+[  2%] Building Fortran object src/mpr/lightweight_fortran_lib/CMakeFiles/lightweight_fortran_lib.dir/mo_kind.f90.o
+[  2%] Building Fortran object src/mpr/flogging/CMakeFiles/flogging.dir/flogging.f90.o
+[  3%] Building Fortran object src/mpr/lightweight_fortran_lib/CMakeFiles/lightweight_fortran_lib.dir/mo_optimization_utils.f90.o
+[  4%] Building Fortran object src/mpr/lightweight_fortran_lib/CMakeFiles/lightweight_fortran_lib.dir/mo_constants.f90.o
+[  6%] Building Fortran object src/mpr/lightweight_fortran_lib/CMakeFiles/lightweight_fortran_lib.dir/mo_xor4096.f90.o
+[  7%] Building Fortran object src/mpr/lightweight_fortran_lib/CMakeFiles/lightweight_fortran_lib.dir/mo_moment.f90.o
+[  8%] Building Fortran object src/mpr/lightweight_fortran_lib/CMakeFiles/lightweight_fortran_lib.dir/mo_julian.f90.o
+[  8%] Building Fortran object src/mpr/lightweight_fortran_lib/CMakeFiles/lightweight_fortran_lib.dir/mo_append.f90.o
+[  9%] Building Fortran object src/mpr/lightweight_fortran_lib/CMakeFiles/lightweight_fortran_lib.dir/mo_optimization_types.f90.o
+[ 10%] Linking Fortran static library libflogging.a
+[ 11%] Building Fortran object src/mpr/lightweight_fortran_lib/CMakeFiles/lightweight_fortran_lib.dir/mo_linfit.f90.o

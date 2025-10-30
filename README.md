@@ -118,7 +118,46 @@ If your deployment stores data outside the repository, adjust the `data_dir` sub
 
 A full setup on a typical research workstation (8-core CPU, 32 GB RAM, SSD storage, fast internet) takes approximately **30–45 minutes**, dominated by Conda environment creation and PyTorch downloads.
 
-## 3. Instructions for use
+## 3. Demo
+
+A lightweight sanity check is provided to validate your Python environment by summarizing the included `study_basins.csv` file.
+
+1. Activate the GenAI_VAE (or any Python environment) and run:
+   ```bash
+   conda activate GenAI_VAE
+   python - <<'PY'
+   import csv
+   import itertools
+   from pathlib import Path
+   path = Path('study_basins.csv')
+   with path.open(encoding='latin-1') as f:
+       reader = csv.DictReader(f)
+       rows = list(itertools.islice(reader, 5))
+   for row in rows:
+       print({key: row[key] for key in ('Stat_ID','Station_Name','River','Start_Date','End_Date','split')})
+   with path.open(encoding='latin-1') as f:
+       count = sum(1 for _ in f) - 1
+   print('\nNumber of basins:', count)
+   PY
+   ```
+
+2. **Expected output**
+   ```text
+   {'Stat_ID': '6335115', 'Station_Name': 'GROLSHEIM', 'River': 'NAHE', 'Start_Date': '1972-11-01', 'End_Date': '2017-10-12', 'split': 'Validation'}
+   {'Stat_ID': '6335125', 'Station_Name': 'SCHWAIBACH', 'River': 'KINZIG', 'Start_Date': '1914-01-01', 'End_Date': '2019-03-31', 'split': 'Training'}
+   {'Stat_ID': '6335290', 'Station_Name': 'STEIN', 'River': 'KOCHER', 'Start_Date': '1911-06-01', 'End_Date': '2019-12-31', 'split': 'Validation'}
+   {'Stat_ID': '6335304', 'Station_Name': 'FRANKFURT-AM-MAIN', 'River': 'MAIN', 'Start_Date': '1963-11-01', 'End_Date': '2019-12-31', 'split': 'Validation'}
+   {'Stat_ID': '6335350', 'Station_Name': 'LEUN-(NEU)', 'River': 'LAHN', 'Start_Date': '1935-11-01', 'End_Date': '2019-12-31', 'split': 'Validation'}
+
+   Number of basins: 162
+   ```
+
+3. **Run time**: < 10 seconds on a standard desktop (the script only parses a ~160-row CSV file).
+
+---
+
+
+## 4. Instructions for use
 
 1. **Data preparation**
    - Configure paths in `code/01_data_preparation` scripts to point to your raw forcing, spatial, and discharge datasets.

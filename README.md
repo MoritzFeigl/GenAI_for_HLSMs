@@ -13,8 +13,8 @@ This repository provides the complete workflow accompanying the publication Dist
   * [07_analyze_results/](code/07_analyze_results) scripts for analyzing training/validation results and plotting parameter fields
   * [08_LSTM_modeling/](code/08_LSTM_modeling) LSTM data preparation, basin splitting, model training, and run configurations
   * [09_compare_data/](code/09_compare_data) scripts to prepare data for comparing parameter results (intercept and k_s)
-* basins_results.csv – CSV file containing all modeling results from the publication
-* study_basins.csv – CSV file containing all information on the used gauges and their data sources
+* [basins_results.csv](basins_results.csv) – CSV file containing all modeling results from the publication
+* [study_basins.csv](study_basins.csv) – CSV file containing all information on the used gauges and their data sources
 ## 1. System requirements
 
 ### Operating systems

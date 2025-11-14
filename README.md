@@ -1,4 +1,4 @@
-This repository contains the code of the publication *Distilling Hydrological and Land Surface Model Parameters from Physio-Geographical Properties Using Text-Generating AI*. A list of required raw data is given below. All scripts are written to work on a Linux cluster using SLURM and need to be adjusted (specifications, paths, etc.) for other clusters or local usage.
+This repository provides the complete workflow accompanying the publication Distilling Hydrological and Land Surface Model Parameters from Physio-Geographical Properties Using Text-Generating AI. It includes data-preparation scripts, VAE and LSTM modeling pipelines, experiment orchestration tools, and analysis utilities. All scripts are designed for execution on a Linux HPC cluster with SLURM and may require adaptation (paths, resource settings, etc.) for other systems. A detailed list of required external raw datasets is provided below.
 
 ## Repository structure
 * [code/](code)
@@ -13,7 +13,8 @@ This repository contains the code of the publication *Distilling Hydrological an
   * [07_analyze_results/](code/07_analyze_results) scripts for analyzing training/validation results and plotting parameter fields
   * [08_LSTM_modeling/](code/08_LSTM_modeling) LSTM data preparation, basin splitting, model training, and run configurations
   * [09_compare_data/](code/09_compare_data) scripts to prepare data for comparing parameter results (intercept and k_s)
-
+* basins_results.csv – CSV file containing all modeling results from the publication
+* study_basins.csv – CSV file containing all information on the used gauges and their data sources
 ## 1. System requirements
 
 ### Operating systems
@@ -62,10 +63,10 @@ Most  scripts expect a shared `data/` directory (referenced as `data_dir` in R a
 | --- | --- | --- |
 | `required_data/discharge/` | Daily discharge observations per basin. Download from the Global Runoff Data Centre (GRDC, <https://www.bafg.de/GRDC>) or the relevant German state portal. Details on the gauges data sources are listed in [`study_basins.csv`](study_basins.csv). Some of these required direct requests to the operator and are not openly accessible. | mHM discharge preparation scripts in `code/01_data_preparation` (for example, `create_basin_discharge.py`). |
 | `required_data/DWD_CDC_data/` | Monthly temperature and precipitation grids from the DWD Climate Data Center. Retrieve NetCDF tiles from <https://opendata.dwd.de/climate_environment/CDC/grids_germany/monthly/> and mirror the folder layout expected by `process_mat_map.py`. | Climate summary utilities in `code/01_data_preparation` (e.g., `process_mat_map.py`). |
-| `required_data/forcings/` | Gridded forcing time series (tavg, PET, precipitation) for Germany supplied by the UFZ Department of Computational Hydrosystems (<https://www.ufz.de/index.php?en=34211>). | Forcing harmonisation and mHM input builders such as `create_basin_forcings.py`. |
+| `required_data/forcings/` | Gridded forcing time series (tavg, PET, precipitation) for Germany supplied by the UFZ Department of Computational Hydrosystems (<https://www.ufz.de/index.php?en=41160>, ask for data up to 2019). | Forcing harmonisation and mHM input builders such as `create_basin_forcings.py`. |
 | `required_data/forcings_UFZ/` | Template mHM forcing files from Feigl et al. (2022, <https://doi.org/10.1029/2022WR031966>) used to align naming conventions and metadata. | Forcing comparison workflows in `code/01_data_preparation` when mapping new forcings onto the UFZ templates. |
 | `required_data/MOD15A3H_LAI_31468/` | Leaf Area Index (LAI) composites downloaded via Google Earth Engine (MOD15A3H collection). Export GeoTIFF tiles per basin and stage them according to the sub-folder structure referenced by `process_additional_modis_predictors.py`. | MODIS processing scripts in `code/01_data_preparation` (for example, `process_additional_modis_predictors.py`). |
-| `required_data/static/` | Static spatial predictors per basin originating from Feigl et al. (2022, <https://doi.org/10.1029/2022WR031966>). Request the original MPR/NetCDF layers from the authors or reproduce them with the published toolbox. | Spatial predictor assembly utilities such as `create_basin_mat.py` and `create_basin_lai.py`. |
+| `required_data/static/` | Static spatial predictors per basin originating from Feigl et al. (2022, <https://doi.org/10.1029/2022WR031966>). | Spatial predictor assembly utilities such as `create_basin_mat.py` and `create_basin_lai.py`. |
 
 If your deployment stores data outside the repository, adjust the `data_dir` substitutions in the provided scripts accordingly so that each script can locate its external inputs.
 ---
